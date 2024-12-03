@@ -8,12 +8,14 @@
   <title>Suryaraj Timsina - DevOps Professional</title>
   <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Add Font Awesome for social media icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
+
   <header>
-    <div class="logo">
+    <div class="logo" id="logo">
       SURYARAJ'S PORTFOLIO
     </div>
     <nav>
@@ -29,8 +31,8 @@
     </nav>
   </header>
 
-  <!-- Hero Section: Initially Visible -->
-  <section id="hero" class="hero">
+  <!-- Landing Page Content -->
+  <section class="hero" id="landingPage">
     <img class="background-img" src="background.jpg" alt="Background Image">
     <div class="hero-content">
       <img src="profile.jpg" alt="Suryaraj Timsina" class="profile-pic">
@@ -50,38 +52,43 @@
     </div>
   </section>
 
-  <!-- Toggle Sections -->
-  <section id="about" class="toggle-section">
+  <!-- Sections for About, Experience, Projects, etc. -->
+  <section id="about">
     <h2>About Me</h2>
-    <p>Information about Suryaraj Timsina...</p>
+    <p>DevOps Professional with over 9 years of experience optimizing team performance through CI/CD automation, reducing release times, and enhancing deployment reliability. Passionate about cloud computing, DevSecOps, and containerized solutions.</p>
   </section>
 
-  <section id="experience" class="toggle-section">
+  <section id="experience">
     <h2>Experience</h2>
     <p>Information about experience...</p>
   </section>
 
-  <section id="projects" class="toggle-section">
+  <section id="projects">
     <h2>Projects</h2>
     <p>Information about projects...</p>
   </section>
 
-  <section id="skills" class="toggle-section">
+  <section id="skills">
     <h2>Skills</h2>
-    <p>Information about skills...</p>
+    <p>Cloud Computing (AWS, Azure)
+      Containerization (Docker, Kubernetes)
+      Infrastructure as Code (Terraform, Opentofu)
+      CI/CD Tools (Jenkins)
+      Configuration Management (Ansible)
+      Programming (Python, Shell Scripting, PowerShell)</p>
   </section>
 
-  <section id="education" class="toggle-section">
+  <section id="education">
     <h2>Education</h2>
     <p>Information about education...</p>
   </section>
 
-  <section id="reference" class="toggle-section">
+  <section id="reference">
     <h2>Reference</h2>
     <p>References or testimonials...</p>
   </section>
 
-  <section id="contact" class="toggle-section">
+  <section id="contact">
     <h2>Contact</h2>
     <p>Contact details...</p>
   </section>
@@ -90,12 +97,11 @@
     <p>&copy; 2024 Suryaraj Timsina. All Rights Reserved.</p>
   </footer>
 
-  <!-- JavaScript -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
+      // Get the nav links container and sections with the class 'toggle-section'
       const navLinks = document.querySelector(".nav-links");
-      const sections = document.querySelectorAll(".toggle-section");
-      const heroSection = document.getElementById("hero");
+      const sections = document.querySelectorAll("section");
 
       // Function to hide all sections
       function hideAllSections() {
@@ -104,35 +110,63 @@
         });
       }
 
-      // Function to show a single section
-      function showSection(targetId) {
+      // Function to show landing page (background, profile, etc.)
+      function showLandingPage() {
         hideAllSections();
-        heroSection.style.display = "none"; // Hide hero section
-        const targetSection = document.getElementById(targetId);
-        if (targetSection) {
-          targetSection.style.display = "block";
+        const landingPageSection = document.getElementById("landingPage");
+        if (landingPageSection) {
+          landingPageSection.style.display = "block";
         }
       }
 
-      // Event listener for navigation links
+      // Event delegation: Add click listener to the nav links container
       navLinks.addEventListener("click", function (event) {
         if (event.target.tagName === "A") {
-          event.preventDefault();
+          event.preventDefault(); // Prevent default anchor behavior
 
+          // Hide all sections
+          hideAllSections();
+
+          // Show the target section
           const targetSectionId = event.target.getAttribute("href").substring(1);
-          showSection(targetSectionId);
+          const targetSection = document.getElementById(targetSectionId);
+          if (targetSection) {
+            targetSection.style.display = "block";
+          }
         }
       });
 
-      // Initially show hero section and all content
-      heroSection.style.display = "block";
-      sections.forEach(section => {
-        section.style.display = "block";
+      // Initially, hide all sections except the default one (landing page)
+      hideAllSections();
+      showLandingPage();
+
+      // Event listener to click on the logo (restore to landing page)
+      const logo = document.getElementById("logo");
+      if (logo) {
+        logo.addEventListener("click", function () {
+          showLandingPage();
+        });
+      }
+
+      // Scroll functionality to navigate up and down
+      window.addEventListener('wheel', function (event) {
+        const currentVisibleSection = Array.from(sections).find(section => section.style.display === "block");
+        if (!currentVisibleSection) return;
+
+        const currentIndex = Array.from(sections).indexOf(currentVisibleSection);
+        if (event.deltaY < 0 && currentIndex > 0) {
+          // Scroll up: show the previous section
+          sections[currentIndex - 1].style.display = "block";
+          currentVisibleSection.style.display = "none";
+        } else if (event.deltaY > 0 && currentIndex < sections.length - 1) {
+          // Scroll down: show the next section
+          sections[currentIndex + 1].style.display = "block";
+          currentVisibleSection.style.display = "none";
+        }
       });
     });
   </script>
 
-  <script src="main.js"></script>
 </body>
 
 </html>

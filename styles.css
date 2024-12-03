@@ -18,6 +18,11 @@ body {
   flex-direction: column;
 }
 
+/* Add this CSS to make the logo appear clickable */
+.logo {
+  cursor: pointer; /* Change the cursor to a pointer (hand) when hovering over the logo */
+}
+
 header {
   display: flex;
   justify-content: space-between;
