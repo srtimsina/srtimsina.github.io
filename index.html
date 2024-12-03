@@ -98,73 +98,81 @@
   </footer>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      // Get the nav links container and sections with the class 'toggle-section'
-      const navLinks = document.querySelector(".nav-links");
-      const sections = document.querySelectorAll("section");
+document.addEventListener("DOMContentLoaded", function () {
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll(".nav-links a");
+  const logo = document.getElementById("logo");
+  let currentSectionIndex = 0;
+  let focusedMode = false;
 
-      // Function to hide all sections
-      function hideAllSections() {
-        sections.forEach(section => {
-          section.style.display = "none";
-        });
-      }
-
-      // Function to show landing page (background, profile, etc.)
-      function showLandingPage() {
-        hideAllSections();
-        const landingPageSection = document.getElementById("landingPage");
-        if (landingPageSection) {
-          landingPageSection.style.display = "block";
-        }
-      }
-
-      // Event delegation: Add click listener to the nav links container
-      navLinks.addEventListener("click", function (event) {
-        if (event.target.tagName === "A") {
-          event.preventDefault(); // Prevent default anchor behavior
-
-          // Hide all sections
-          hideAllSections();
-
-          // Show the target section
-          const targetSectionId = event.target.getAttribute("href").substring(1);
-          const targetSection = document.getElementById(targetSectionId);
-          if (targetSection) {
-            targetSection.style.display = "block";
-          }
-        }
-      });
-
-      // Initially, hide all sections except the default one (landing page)
-      hideAllSections();
-      showLandingPage();
-
-      // Event listener to click on the logo (restore to landing page)
-      const logo = document.getElementById("logo");
-      if (logo) {
-        logo.addEventListener("click", function () {
-          showLandingPage();
-        });
-      }
-
-      // Scroll functionality to navigate up and down
-      window.addEventListener('wheel', function (event) {
-        const currentVisibleSection = Array.from(sections).find(section => section.style.display === "block");
-        if (!currentVisibleSection) return;
-
-        const currentIndex = Array.from(sections).indexOf(currentVisibleSection);
-        if (event.deltaY < 0 && currentIndex > 0) {
-          // Scroll up: show the previous section
-          sections[currentIndex - 1].style.display = "block";
-          currentVisibleSection.style.display = "none";
-        } else if (event.deltaY > 0 && currentIndex < sections.length - 1) {
-          // Scroll down: show the next section
-          sections[currentIndex + 1].style.display = "block";
-          currentVisibleSection.style.display = "none";
-        }
-      });
+  function updateSectionsVisibility(index) {
+    sections.forEach((section, i) => {
+      section.style.display = i === index || !focusedMode ? "block" : "none";
     });
+    if (focusedMode) {
+      sections[index].scrollIntoView({ behavior: "smooth" });
+    }
+  }
+
+  function enterFocusedMode(index) {
+    focusedMode = true;
+    currentSectionIndex = index;
+    updateSectionsVisibility(index);
+  }
+
+  function exitFocusedMode() {
+    focusedMode = false;
+    updateSectionsVisibility(currentSectionIndex);
+  }
+
+  // Navigation behavior for menu links
+  navLinks.forEach((link, index) => {
+    link.addEventListener("click", function (event) {
+      event.preventDefault(); // Prevent default link behavior
+      enterFocusedMode(index);
+    });
+  });
+
+  // Logo click behavior: Return to landing mode
+  logo.addEventListener("click", function (event) {
+    event.preventDefault();
+    exitFocusedMode();
+  });
+
+  // Scroll navigation between sections
+  window.addEventListener("wheel", function (event) {
+    if (focusedMode) {
+      if (event.deltaY > 0 && currentSectionIndex < sections.length - 1) {
+        // Scroll Down
+        currentSectionIndex++;
+        updateSectionsVisibility(currentSectionIndex);
+      } else if (event.deltaY < 0 && currentSectionIndex > 0) {
+        // Scroll Up
+        currentSectionIndex--;
+        updateSectionsVisibility(currentSectionIndex);
+      }
+    }
+  });
+
+  // Keyboard navigation for sections
+  window.addEventListener("keydown", function (event) {
+    if (focusedMode) {
+      if (event.key === "ArrowDown" && currentSectionIndex < sections.length - 1) {
+        // Navigate Down
+        currentSectionIndex++;
+        updateSectionsVisibility(currentSectionIndex);
+      } else if (event.key === "ArrowUp" && currentSectionIndex > 0) {
+        // Navigate Up
+        currentSectionIndex--;
+        updateSectionsVisibility(currentSectionIndex);
+      }
+    }
+  });
+
+  // Initialize the page in Landing Mode
+  exitFocusedMode();
+});
+
   </script>
 
 </body>
