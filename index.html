@@ -126,10 +126,16 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Navigation behavior for menu links
-  navLinks.forEach((link, index) => {
+  navLinks.forEach((link) => {
     link.addEventListener("click", function (event) {
       event.preventDefault(); // Prevent default link behavior
-      enterFocusedMode(index);
+      const targetId = this.getAttribute("href").slice(1); // Get the section ID (without #)
+      const targetIndex = Array.from(sections).findIndex(
+        (section) => section.id === targetId
+      );
+      if (targetIndex !== -1) {
+        enterFocusedMode(targetIndex);
+      }
     });
   });
 
@@ -172,6 +178,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Initialize the page in Landing Mode
   exitFocusedMode();
 });
+
 
   </script>
 
