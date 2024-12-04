@@ -194,9 +194,15 @@ section p {
 /* Skills Section */
 .skills-container {
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
-  gap: 30px;
-  justify-content: center;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  border: 2px solid #ddd;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .skills-wrapper {
@@ -214,11 +220,12 @@ section p {
 }
 
 .skills-column {
-  width: 45%;
+  width: 48%;
 }
 
 .skill {
   margin-bottom: 20px;
+  text-align: left;
 }
 
 label {
@@ -226,6 +233,7 @@ label {
   color: #333;
   display: block;
   margin-bottom: 5px;
+  text-align: left;
 }
 
 .progress-bar-container {
@@ -254,17 +262,24 @@ label {
   color: black; /* Change percentage text color to black */
 }
 
+/* Responsive Design for Skills */
+@media (max-width: 768px) {
+  .skills-column {
+    width: 100%; /* Stack columns on smaller screens */
+  }
+}
+
 /* Experience Section Container */
 .experience-container {
-  border: 2px solid #ddd;
-  border-radius: 8px;
+  max-width: 1200px; /* Same width as skills-container */
+  margin: 20px auto; /* Center the container */
   padding: 20px;
   background-color: #f9f9f9;
-  margin-top: 20px;
-  width: 100%;
-  overflow-y: auto; /* Allows scrolling when the content exceeds */
-  max-height: none; /* No height restriction */
-  box-sizing: border-box; /* Ensures padding doesn't overflow */
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  overflow-y: auto; /* Enable scrolling if content overflows */
+  box-sizing: border-box; /* Include padding in width calculations */
 }
 
 /* Individual Experience Items */
