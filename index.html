@@ -115,6 +115,12 @@
     </div>
   </section>
 
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <p>Information about your projects...</p>
+  </section>
+
   <!-- Skills Section -->
   <section id="skills">
     <h2>Skills</h2>
@@ -206,23 +212,6 @@
     // Scroll the page to the top (landing page) when the logo is clicked
     document.getElementById("logo").addEventListener("click", function () {
       document.getElementById("landingPage").scrollIntoView({ behavior: "smooth" });
-    });
-
-    // Toggle "See More" content visibility for all experiences
-    document.querySelectorAll('.see-more-btn').forEach(function (button) {
-      button.addEventListener('click', function () {
-        const details = this.parentElement.nextElementSibling; // The details container
-        const summary = this.parentElement; // The summary container
-
-        // Toggle visibility of the full details
-        if (details.style.display === 'none' || details.style.display === '') {
-          details.style.display = 'block';
-          this.textContent = 'See Less';
-        } else {
-          details.style.display = 'none';
-          this.textContent = 'See More';
-        }
-      });
     });
   </script>
 
