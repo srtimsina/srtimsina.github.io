@@ -34,7 +34,6 @@
   <section class="hero" id="landingPage">
     <img class="background-img" src="background.jpg" alt="Background Image">
     <div class="hero-content">
-      <!-- Update the src for profile image -->
       <img src="profile.jpg" alt="Suryaraj Timsina" class="profile-pic">
       <h1>Suryaraj Timsina</h1>
       <h2>DevOps Engineer</h2>
@@ -62,6 +61,7 @@
   <section id="experience">
     <h2>Experience</h2>
     <div class="experience-container">
+      <!-- Experience item 1 -->
       <div class="experience-item">
         <h3>DevOps Trainer</h3>
         <h4>TechAxis | Kumaripati, Nepal | 08/2022 - Present</h4>
@@ -79,6 +79,7 @@
         </div>
       </div>
 
+      <!-- Experience item 2 -->
       <div class="experience-item">
         <h3>Senior System Engineer</h3>
         <h4>LogPoint | Jawalakhel, Nepal | 05/2018 - 07/2024</h4>
@@ -95,6 +96,7 @@
         </div>
       </div>
 
+      <!-- Experience item 3 -->
       <div class="experience-item">
         <h3>IT Engineer</h3>
         <h4>Deerwalk Services Pvt. Ltd. | Sifal, Nepal | 06/2015 - 05/2018</h4>
@@ -121,58 +123,59 @@
         <div class="skill">
           <label for="terraform">Terraform</label>
           <div class="progress-bar-container">
-            <div class="progress-bar" style="width: 90%;"></div>
+            <div class="progress-bar" style="width: 90%"></div>
             <span class="percentage">90%</span>
           </div>
         </div>
         <div class="skill">
           <label for="aws">AWS Services</label>
           <div class="progress-bar-container">
-            <div class="progress-bar" style="width: 80%;"></div>
+            <div class="progress-bar" style="width: 80%"></div>
             <span class="percentage">80%</span>
           </div>
         </div>
         <div class="skill">
           <label for="python">Python & Shell Scripting</label>
           <div class="progress-bar-container">
-            <div class="progress-bar" style="width: 70%;"></div>
+            <div class="progress-bar" style="width: 70%"></div>
             <span class="percentage">70%</span>
           </div>
         </div>
         <div class="skill">
-          <label for="postgresql">PostgreSQL, MYSQL, MONGO</label>
+          <label for="postgres">PostgreSQL, MySQL, Mongo</label>
           <div class="progress-bar-container">
-            <div class="progress-bar" style="width: 75%;"></div>
+            <div class="progress-bar" style="width: 75%"></div>
             <span class="percentage">75%</span>
           </div>
         </div>
       </div>
+
       <div class="skills-column">
         <div class="skill">
           <label for="docker">Docker</label>
           <div class="progress-bar-container">
-            <div class="progress-bar" style="width: 85%;"></div>
+            <div class="progress-bar" style="width: 85%"></div>
             <span class="percentage">85%</span>
           </div>
         </div>
         <div class="skill">
           <label for="kubernetes">Kubernetes</label>
           <div class="progress-bar-container">
-            <div class="progress-bar" style="width: 70%;"></div>
+            <div class="progress-bar" style="width: 70%"></div>
             <span class="percentage">70%</span>
           </div>
         </div>
         <div class="skill">
           <label for="jenkins">Jenkins</label>
           <div class="progress-bar-container">
-            <div class="progress-bar" style="width: 70%;"></div>
+            <div class="progress-bar" style="width: 70%"></div>
             <span class="percentage">70%</span>
           </div>
         </div>
         <div class="skill">
           <label for="ansible">Ansible</label>
           <div class="progress-bar-container">
-            <div class="progress-bar" style="width: 80%;"></div>
+            <div class="progress-bar" style="width: 80%"></div>
             <span class="percentage">80%</span>
           </div>
         </div>
@@ -206,8 +209,8 @@
     });
 
     // Toggle "See More" content visibility for all experiences
-    document.querySelectorAll('.see-more-btn').forEach(function(button) {
-      button.addEventListener('click', function() {
+    document.querySelectorAll('.see-more-btn').forEach(function (button) {
+      button.addEventListener('click', function () {
         const details = this.parentElement.nextElementSibling; // The details container
         const summary = this.parentElement; // The summary container
 
