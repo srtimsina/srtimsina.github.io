@@ -161,8 +161,23 @@ header .nav-links a:hover {
   transform: scale(1.1); /* Slightly increase the size on hover */
 }
 
+<<<<<<< Updated upstream
 .hero .social-icons a i {
   display: inline-block;
+=======
+/* Experience Section Container */
+.experience-container {
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  margin-top: 20px;
+  width: 100%;
+  /* Allows content to expand dynamically */
+  overflow-y: auto; /* Allows scrolling when the content exceeds */
+  max-height: none; /* No height restriction */
+  box-sizing: border-box; /* Ensures padding doesn't overflow */
+>>>>>>> Stashed changes
 }
 
 /* Section Styling */
@@ -174,12 +189,66 @@ section {
 section h2 {
   font-size: 32px;
   margin-bottom: 20px;
+<<<<<<< Updated upstream
   font-weight: 600;
+=======
+  padding-left: 20px;
+  text-align: left; /* Left-align experience content */
+>>>>>>> Stashed changes
 }
 
 section p {
   font-size: 18px;
   color: #555;
+<<<<<<< Updated upstream
+=======
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+/* Summary (initial visible content) */
+.experience-summary p {
+  font-size: 16px;
+  color: #333;
+  text-align: left; /* Left-align the summary paragraph */
+}
+
+/* Bullet Points */
+.experience-item ul {
+  list-style-type: disc;
+  padding-left: 40px;
+  font-size: 16px;
+  color: #666;
+  text-align: left; /* Left-align bullet points */
+}
+
+.experience-item ul li {
+  margin-bottom: 8px;
+}
+
+/* Experience Details (Initially hidden) */
+.experience-details {
+  display: none;
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+/* Button styling */
+.see-more-btn {
+  background-color: #f4a261;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+.see-more-btn:hover {
+  background-color: #e76f51;
+>>>>>>> Stashed changes
 }
 
 /* Footer Styling */
@@ -188,7 +257,7 @@ footer {
   color: white;
   text-align: center;
   padding: 20px;
-  margin-top: auto; /* Pushes the footer to the bottom of the page */
+  margin-top: auto;
   width: 100%;
 }
 

@@ -60,7 +60,65 @@
 
   <section id="experience">
     <h2>Experience</h2>
+<<<<<<< Updated upstream
     <p>Information about experience...</p>
+=======
+    <div class="experience-container">
+      <!-- Experience item 1 -->
+      <div class="experience-item">
+        <h3>DevOps Trainer</h3>
+        <h4>TechAxis | Kumaripati, Nepal | 08/2022 - Present</h4>
+        <div class="experience-summary">
+          <p>Authored and delivered DevOps training to 290+ individuals.</p>
+          <button class="see-more-btn">See More</button>
+        </div>
+        <div class="experience-details">
+          <ul>
+            <li>Successfully trained and guided students for AWS Cloud certification, with 70% passing the AWS SAA-C03 exam.</li>
+            <li>Organized and led 10+ DevOps workshops, resulting in a 40% increase in tool adoption and hands-on proficiency among participants.</li>
+            <li>Successfully guided teams in automating infrastructure provisioning for over 50 projects.</li>
+            <li>Conducted webinars and online workshops reaching over 500 participants globally.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Experience item 2 -->
+      <div class="experience-item">
+        <h3>Senior System Engineer</h3>
+        <h4>LogPoint | Jawalakhel, Nepal | 05/2018 - 07/2024</h4>
+        <div class="experience-summary">
+          <p>Engineered and optimized Docker-based CI/CD pipelines.</p>
+          <button class="see-more-btn">See More</button>
+        </div>
+        <div class="experience-details">
+          <ul>
+            <li>Streamlined cloud VM image creation (AWS AMI, Azure VHD, OVA) using Packer, Terraform, PowerShell, and Jenkins, stabilizing artifacts by 95%.</li>
+            <li>Promoted a DevOps culture across teams, enhancing system reliability and developer productivity by 60%.</li>
+            <li>Introduced open-source security tools (SNYK, OPENVAS, Trivy) to strengthen container security and improve resilience by 80%.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Experience item 3 -->
+      <div class="experience-item">
+        <h3>IT Engineer</h3>
+        <h4>Deerwalk Services Pvt. Ltd. | Sifal, Nepal | 06/2015 - 05/2018</h4>
+        <div class="experience-summary">
+          <p>Deployed and maintained Ubuntu, CentOS, and Windows servers.</p>
+          <button class="see-more-btn">See More</button>
+        </div>
+        <div class="experience-details">
+          <ul>
+            <li>Revamped network infrastructure by upgrading 35+ Cisco smart switches and automating configurations with Ansible, improving deployment efficiency.</li>
+            <li>Ensured HIPAA compliance by implementing data security measures, reducing security vulnerabilities by 55%.</li>
+            <li>Strengthened physical and cybersecurity by conducting vulnerability scans with Nessus, deploying ESET antivirus, and managing surveillance systems.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- More experience items can go here -->
+    </div>
+>>>>>>> Stashed changes
   </section>
 
   <section id="projects">
@@ -117,6 +175,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const rect = section.getBoundingClientRect();
       return rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2;
     });
+<<<<<<< Updated upstream
     if (sectionInView !== -1) {
       currentSectionIndex = sectionInView;
     }
@@ -163,6 +222,25 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+=======
+
+    // Toggle "See More" content visibility for all experiences
+    document.querySelectorAll('.see-more-btn').forEach(function(button) {
+      button.addEventListener('click', function() {
+        const details = this.parentElement.nextElementSibling; // The details container
+        const summary = this.parentElement; // The summary container
+
+        // Toggle visibility of the full details
+        if (details.style.display === 'none' || details.style.display === '') {
+          details.style.display = 'block';
+          this.textContent = 'See Less';
+        } else {
+          details.style.display = 'none';
+          this.textContent = 'See More';
+        }
+      });
+    });
+>>>>>>> Stashed changes
   </script>
 
 </body>
