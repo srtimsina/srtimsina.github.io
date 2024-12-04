@@ -255,6 +255,7 @@ label {
   height: 5px; /* Reduced height to make it thinner */
   background-color: #e0e0e0;
   border-radius: 10px;
+  margin-bottom: 15px;
 }
 
 .progress-bar {
@@ -264,6 +265,8 @@ label {
   height: 100%;
   background-color: #f4a261;
   border-radius: 10px;
+  width: 0%; /* Start at 0% width */
+  transition: width 2s ease; /* Smooth transition when animating the width */
 }
 
 .percentage {
@@ -425,5 +428,111 @@ footer {
 
   section p {
     font-size: 14px;
+  }
+}
+
+/* General Education Container Styling */
+.education-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px; /* Gap between left and right columns */
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.education-left,
+.education-right {
+  width: 48%; /* Adjust width for both columns */
+  flex-grow: 1;
+}
+
+/* Education Item */
+.education-item {
+  background-color: #fff;
+  padding: 20px;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Add margin to the formal education items for spacing */
+.education-left .education-item {
+  margin-bottom: 20px; /* Space between Bachelor and +2 items */
+}
+
+.education-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+}
+
+/* Education Icon */
+.education-icon {
+  font-size: 40px;
+  color: #f4a261;
+  margin-bottom: 10px;
+}
+
+/* Education Item Titles */
+.education-item h3 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Degree and Year */
+.degree {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.year {
+  font-size: 16px;
+  color: #777;
+}
+
+/* Training and Certifications Lists */
+.trainings-list {
+  list-style: none;
+  padding-left: 0;
+  font-size: 18px;
+  color: #555;
+  text-align: left;
+}
+
+.trainings-list li {
+  margin-bottom: 8px;
+}
+
+.trainings-list a {
+  text-decoration: none;
+  color: #f4a261;
+}
+
+.trainings-list a:hover {
+  text-decoration: underline;
+  color: #e76f51;
+}
+
+/* Certifications Box Styling */
+.education-right .certifications {
+  background-color: #f9f9f9;
+  margin-bottom: 20px; /* Space between the certifications and trainings */
+}
+
+/* Trainings Box Styling */
+.education-right .trainings {
+  background-color: #f2f2f2; /* Light background color for trainings */
+}
+
+/* Responsive Design for Education */
+@media (max-width: 768px) {
+  .education-left,
+  .education-right {
+    width: 100%; /* Stack both columns on smaller screens */
   }
 }

@@ -134,29 +134,29 @@
         <div class="skill">
           <label for="terraform">Terraform</label>
           <div class="progress-bar-container">
-            <div class="progress-bar" style="width: 90%"></div>
-            <span class="percentage">90%</span>
+            <div class="progress-bar" data-progress="90"></div>
+            <span class="percentage">0%</span>
           </div>
         </div>
         <div class="skill">
           <label for="aws">AWS Services</label>
           <div class="progress-bar-container">
-            <div class="progress-bar" style="width: 80%"></div>
-            <span class="percentage">80%</span>
+            <div class="progress-bar" data-progress="80"></div>
+            <span class="percentage">0%</span>
           </div>
         </div>
         <div class="skill">
           <label for="python">Python & Shell Scripting</label>
           <div class="progress-bar-container">
-            <div class="progress-bar" style="width: 70%"></div>
-            <span class="percentage">70%</span>
+            <div class="progress-bar" data-progress="70"></div>
+            <span class="percentage">0%</span>
           </div>
         </div>
         <div class="skill">
           <label for="postgres">PostgreSQL, MySQL, Mongo</label>
           <div class="progress-bar-container">
-            <div class="progress-bar" style="width: 75%"></div>
-            <span class="percentage">75%</span>
+            <div class="progress-bar" data-progress="75"></div>
+            <span class="percentage">0%</span>
           </div>
         </div>
       </div>
@@ -165,42 +165,87 @@
         <div class="skill">
           <label for="docker">Docker</label>
           <div class="progress-bar-container">
-            <div class="progress-bar" style="width: 85%"></div>
-            <span class="percentage">85%</span>
+            <div class="progress-bar" data-progress="85"></div>
+            <span class="percentage">0%</span>
           </div>
         </div>
         <div class="skill">
           <label for="kubernetes">Kubernetes</label>
           <div class="progress-bar-container">
-            <div class="progress-bar" style="width: 70%"></div>
-            <span class="percentage">70%</span>
+            <div class="progress-bar" data-progress="70"></div>
+            <span class="percentage">0%</span>
           </div>
         </div>
         <div class="skill">
           <label for="jenkins">Jenkins</label>
           <div class="progress-bar-container">
-            <div class="progress-bar" style="width: 70%"></div>
-            <span class="percentage">70%</span>
+            <div class="progress-bar" data-progress="70"></div>
+            <span class="percentage">0%</span>
           </div>
         </div>
         <div class="skill">
           <label for="ansible">Ansible</label>
           <div class="progress-bar-container">
-            <div class="progress-bar" style="width: 80%"></div>
-            <span class="percentage">80%</span>
+            <div class="progress-bar" data-progress="80"></div>
+            <span class="percentage">0%</span>
           </div>
         </div>
       </div>
     </div>
-  </section>  
+  </section>   
 
-  <!-- Education Section -->
-  <section id="education">
-    <div class="container">
-      <h2>Education</h2>
-      <p>Information about your education...</p>
+<!-- Education Section -->
+<section id="education">
+  <h2>Education & Certifications</h2>
+  <div class="education-container">
+    <!-- Left Column: Formal Education -->
+    <div class="education-left">
+      <div class="education-item">
+        <div class="education-icon">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+        <h3>Deerwalk Institute of Technology, Sifal, Kathmandu</h3>
+        <p class="degree">Bachelor of Science - Computer Science Information & Technology</p>
+      </div>
+  
+      <div class="education-item">
+        <div class="education-icon">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+        <h3>Pokhara Higher Secondary School, Bagar, Pokhara</h3>
+        <p class="degree">+2 Science</p>
+      </div>
     </div>
-  </section>
+
+    <!-- Right Column: Certifications and Trainings -->
+    <div class="education-right">
+      <!-- Certifications Box -->
+      <div class="education-item certifications">
+        <div class="education-icon">
+          <i class="fas fa-certificate"></i>
+        </div>
+        <h3>Certifications</h3>
+        <ul class="trainings-list">
+          <li><strong><a href="https://www.redhat.com/en/services/certification" target="_blank">RHCSA, RHCE [170-276-836]</a></strong></li>
+          <li><strong>Agile Foundation</strong></li>
+          <li><strong>Microservices and DevOps</strong></li>
+        </ul>
+      </div>
+
+      <!-- Trainings Box -->
+      <div class="education-item trainings">
+        <div class="education-icon">
+          <i class="fas fa-certificate"></i>
+        </div>
+        <h3>Trainings</h3>
+        <ul class="trainings-list">
+          <li><strong>Linux Basics</strong></li>
+          <li><strong>Power Workshop on Java Programming</strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
   <!-- Reference Section -->
   <section id="reference">
@@ -244,6 +289,41 @@
         }
       });
     });
+
+    // Function to animate the progress bars
+    function animateProgressBars(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const progressBars = entry.target.querySelectorAll('.progress-bar');
+          progressBars.forEach(bar => {
+            const targetPercentage = bar.getAttribute('data-progress');
+            const percentageSpan = bar.nextElementSibling;
+
+            // Animate the progress bar
+            bar.style.width = targetPercentage + '%';
+
+            // Update the percentage text
+            let currentPercentage = 0;
+            const interval = setInterval(() => {
+              if (currentPercentage < targetPercentage) {
+                currentPercentage++;
+                percentageSpan.textContent = `${currentPercentage}%`;
+              } else {
+                clearInterval(interval);
+              }
+            }, 10);
+          });
+        }
+      });
+    }
+
+    // Setup IntersectionObserver
+    const skillsSection = document.querySelector('#skills');
+    const observer = new IntersectionObserver(animateProgressBars, {
+      threshold: 0.5 // Trigger when 50% of the skills section is in view
+    });
+
+    observer.observe(skillsSection);
   </script>
 
 </body>
