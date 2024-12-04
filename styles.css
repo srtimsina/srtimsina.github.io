@@ -81,6 +81,8 @@ section {
   background-color: #f4f4f9;
   border-bottom: 2px solid #ddd;
   overflow: hidden; /* Hide overflow to keep the layout clean */
+  position: relative; /* Ensure sections stack properly */
+  z-index: 1;
 }
 
 /* Section Headings */
