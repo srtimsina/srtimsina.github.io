@@ -285,6 +285,128 @@ label {
   }
 }
 
+/* About Section Styling */
+#about {
+  background-color: #f9f9f9;
+  padding: 60px 20px;
+  text-align: center;
+  border-top: 2px solid #ddd;
+}
+
+#about h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #333;
+  text-transform: uppercase;
+}
+
+/* About Content Layout */
+.about-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.about-left,
+.about-right {
+  flex: 1;
+  min-width: 300px;
+}
+
+.about-left {
+  text-align: left;
+}
+
+.about-right {
+  text-align: left;
+}
+
+/* Key Stats Section */
+.key-stats {
+  margin-bottom: 20px;
+}
+
+.key-stats ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.key-stats li {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.key-stats h3 {
+  margin-bottom: 10px;
+}
+
+.personal-quote {
+  font-style: italic;
+  font-size: 18px;
+  color: #333;
+  margin-top: 10px;
+}
+
+/* Mission Statement Section */
+.about-mission h3 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.about-mission p {
+  font-size: 18px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Icon Section */
+.about-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; /* Better alignment */
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.about-icon {
+  flex: 1;
+  max-width: 200px;
+  padding: 20px;
+  margin: 10px;
+  background-color: #fff;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.about-icon i {
+  font-size: 40px;
+  color: #f4a261;
+  margin-bottom: 10px;
+}
+
+.about-icon p {
+  font-size: 16px;
+  color: #333;
+}
+
+/* Ensure Icons Wrap Properly on Smaller Screens */
+@media (max-width: 768px) {
+  .about-icons {
+    justify-content: center;
+  }
+
+  .about-icon {
+    margin-bottom: 20px;
+    max-width: 300px;
+  }
+}
+
 /* Experience Section Container */
 .experience-container {
   max-width: 1200px; /* Same width as skills-container */
