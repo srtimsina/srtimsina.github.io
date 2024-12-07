@@ -43,6 +43,21 @@ header .logo {
   text-align: left;
 }
 
+/* Hamburger Icon */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  z-index: 200;
+}
+
+.hamburger i {
+  font-size: 30px;
+  color: white;
+}
+
 header .nav-links {
   display: flex;
   justify-content: center;
@@ -96,6 +111,11 @@ section h2 {
 section p {
   font-size: 18px;
   color: #555;
+}
+
+/* Mobile Menu */
+.nav-links.active {
+  display: block;
 }
 
 /* Hero Section Styling */
@@ -533,11 +553,34 @@ footer {
   }
 
   header .nav-links {
+    display: none;
     flex-direction: column;
+    text-align: right;
+    width: 100%;
+    padding: 20px;
+    background-color: #333;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
 
   header .nav-links li {
     margin: 10px 0;
+  }
+
+  header .nav-links.active {
+    display: flex;
+  }
+
+  header .nav-links a {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .hamburger {
+    display: block;
   }
 
   section h2 {

@@ -17,6 +17,10 @@
     <div class="logo" id="logo">
       SURYARAJ'S PORTFOLIO
     </div>
+    <!-- Hamburger Icon for mobile -->
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
     <nav>
       <ul class="nav-links">
         <li><a href="#about">ABOUT</a></li>
@@ -388,6 +392,21 @@
   </footer>
 
   <script>
+      function toggleMenu() {
+      const navLinks = document.querySelector(".nav-links");
+      const hamburgerIcon = document.querySelector(".hamburger i");
+
+      navLinks.classList.toggle("active");
+
+      // Toggle between "hamburger" and "close" icons
+      if (navLinks.classList.contains("active")) {
+        hamburgerIcon.classList.remove("fa-bars");
+        hamburgerIcon.classList.add("fa-times");
+      } else {
+        hamburgerIcon.classList.remove("fa-times");
+        hamburgerIcon.classList.add("fa-bars");
+      }
+    }
     // Scroll the page to the top (landing page) when the logo is clicked
     document.getElementById("logo").addEventListener("click", function () {
       document.getElementById("landingPage").scrollIntoView({ behavior: "smooth" });
